@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看球直播 · 资料索引与平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f2f4f7;
+            color: #1d2b3c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        /* hero 卡片区域 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaeef2;
+            padding: 2.5rem 2rem 2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+        .hero-card:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #0f1923;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #5b6f83;
+            border-left: 3px solid #9bb0c4;
+            padding-left: 1rem;
+            margin: 0.25rem 0 1.5rem 0;
+            font-weight: 380;
+        }
+        .hero-summary {
+            font-size: 1rem;
+            color: #2c4053;
+            background: #f8fafc;
+            padding: 1.25rem 1.5rem;
+            border-radius: 14px;
+            border: 1px solid #e2e9f0;
+            margin-bottom: 1.2rem;
+        }
+        .hero-summary strong {
+            font-weight: 500;
+            color: #0d2b3e;
+        }
+        /* 通用卡片 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e2e9f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 1.6rem 1.5rem 1.5rem;
+            flex: 1 1 240px;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            border-color: #cbd8e6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 520;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #eef2f6;
+            color: #1c3144;
+        }
+        .card p, .card li {
+            font-size: 0.93rem;
+            color: #2f455b;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7d94ab;
+            font-weight: 700;
+        }
+        .tag {
+            display: inline-block;
+            background: #eef3f9;
+            color: #2a4b66;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 30px;
+            margin-right: 0.25rem;
+            border: 1px solid #dae2ec;
+        }
+        .link-inline {
+            color: #1f6191;
+            text-decoration: none;
+            font-weight: 460;
+            border-bottom: 1px dotted #b3cada;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .link-inline:hover {
+            color: #0b3b5c;
+            border-bottom: 1px solid #0b3b5c;
+        }
+        .note-box {
+            background: #f7fafc;
+            border-left: 4px solid #9bb7cf;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin: 1.8rem 0 0.8rem;
+            font-size: 0.92rem;
+            color: #1e374b;
+            border: 1px solid #e2ecf5;
+            border-left-width: 4px;
+        }
+        .faq-item {
+            margin: 0.9rem 0;
+        }
+        .faq-question {
+            font-weight: 500;
+            color: #173247;
+            margin-bottom: 0.1rem;
+        }
+        .faq-answer {
+            color: #3b5369;
+            font-size: 0.92rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid #d6e1ed;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e8f0;
+            margin: 1.8rem 0 1rem;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.84rem;
+            color: #6c839b;
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid #dce5ef;
+            margin-top: 2rem;
+        }
+        /* 响应式 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+        @media (min-width: 768px) {
+            .card-grid {
+                gap: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 区域：摘要 + 索引说明 -->
+    <div class="hero-card">
+        <h1 class="hero-title">看球直播 · 信息整理与平台索引</h1>
+        <div class="hero-sub">基于资料梳理与使用场景的简明说明</div>
+        <div class="hero-summary">
+            <strong>看球直播</strong> 是一个以赛事信息聚合、内容索引为主的平台。本文档从资料整理角度，概括其主要特点、适用场景及访问方式，不构成任何推广或承诺，仅供参考。
+        </div>
+        <p style="font-size:0.93rem; color:#3a526a; margin-bottom:0.2rem;">
+            以下内容基于公开信息与常见使用逻辑整理，帮助新接触者快速了解平台定位。
+        </p>
+    </div>
+
+    <!-- 亮点卡片：使用资料索引的方式 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 内容整理方向</h3>
+            <ul>
+                <li>赛事日程与分类索引</li>
+                <li>多项目覆盖（足球、篮球等）</li>
+                <li>信息以结构化条目呈现</li>
+                <li>界面侧重检索效率</li>
+            </ul>
+            <div style="margin-top:0.8rem;">
+                <span class="tag">足球</span>
+                <span class="tag">篮球</span>
+                <span class="tag">电竞</span>
+                <span class="tag">综合</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>⚙️ 使用建议</h3>
+            <ul>
+                <li>适合浏览赛程及实时状态</li>
+                <li>可通过分类筛选缩小范围</li>
+                <li>建议搭配官方信息交叉验证</li>
+                <li>保持浏览器与网络环境稳定</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🧩 场景参考</h3>
+            <ul>
+                <li>快速查看当日赛事列表</li>
+                <li>对比不同联赛时间安排</li>
+                <li>赛前信息收集与准备</li>
+                <li>赛后数据回顾（部分）</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <div class="note-box">
+        <strong style="color:#1b4b6e;">· 客观说明</strong><br>
+        本页仅从资料索引与信息整理角度介绍 <a href="https://main-kanqiu.com" class="link-inline">看球直播</a> 的功能轮廓。所有描述均基于可观察的界面逻辑与公开说明，不包含对数据准确性、服务稳定性或任何商业性质的承诺。实际使用时，建议以平台自身显示为准。
+    </div>
+
+    <!-- FAQ 摘要（紧凑风格） -->
+    <div style="background:#ffffff; border-radius:18px; border:1px solid #e2e9f0; padding:1.6rem 1.5rem; margin-top:1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+        <h3 style="font-size:1.05rem; font-weight:520; color:#1c3144; margin-bottom:0.8rem;">❓ 一些常见疑问</h3>
+        <div class="faq-item">
+            <div class="faq-question">Q：看球直播需要注册吗？</div>
+            <div class="faq-answer">根据界面显示，部分功能可能无需注册即可浏览，但个性化设置或收藏类功能可能需要账户。具体以实际页面为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q：赛事信息更新频率如何？</div>
+            <div class="faq-answer">通常基于数据源同步，不同联赛或项目可能有差异。建议在关键比赛前二次确认时间。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q：与其他平台相比有什么特点？</div>
+            <div class="faq-answer">看球直播的信息组织方式更偏向赛程列表与分类索引，适合需要快速概览的用户。可对比自身需求选择。</div>
+        </div>
+        <p style="font-size:0.85rem; color:#5b738b; margin-top:0.8rem; border-top:1px dashed #dce4ed; padding-top:0.8rem;">
+            * 以上问答基于常见使用逻辑整理，不构成官方回复。
+        </p>
+    </div>
+
+    <!-- 附加提示：嵌入链接自然使用 -->
+    <div style="margin-top:1.2rem; background:#ffffff; border-radius:18px; border:1px solid #e2e9f0; padding:1.2rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+        <p style="font-size:0.93rem; color:#2f455b;">
+            📎 如果你希望进一步查看赛事布局与分类结构，可以直接浏览 
+            <a href="https://main-kanqiu.com" class="link-inline">看球直播</a> 
+            的首页，其中包含当日重点赛事与联赛筛选入口。建议根据自身兴趣选择对应分类。
+        </p>
+        <p style="font-size:0.85rem; color:#5f768e; margin-top:0.6rem;">
+            * 请注意：平台内容可能随运营调整而变化，本页描述仅反映当前观察。
+        </p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        此页面为资料整理与介绍用途 · 信息更新于近期 · 参考自公开数据
+    </div>
+</div>
+</body>
+</html>
